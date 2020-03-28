@@ -20,12 +20,12 @@ async def main():
     await asyncio.gather(*tasks)
 
 
-try:
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
-except KeyboardInterrupt:
-    pass
-finally:
-    print("Closing Loop")
-    loop.close()
-
+if __name__ == "__main__":
+    try:
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(main())
+    except KeyboardInterrupt:
+        pass
+    finally:
+        print("Closing Loop")
+        loop.close()

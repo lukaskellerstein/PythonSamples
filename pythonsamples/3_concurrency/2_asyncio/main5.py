@@ -37,5 +37,6 @@ async def main():
     print("Took %.2f ms" % (1000 * (t1 - t0)))
 
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+if __name__ == "__main__":
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())

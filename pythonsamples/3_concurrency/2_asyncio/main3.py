@@ -1,26 +1,33 @@
 import asyncio
+import time
+
 
 # -------------------------------------------------------
-# RUN FOREVER
+# RUN FOREVER - MULTIPLE COROUTINES
 # -------------------------------------------------------
 
 
-async def myCoroutine():
+async def firstWorker():
     while True:
         await asyncio.sleep(1)
-        print("Task Executed")
+        print("First Worker Executed")
 
 
-def main():
+async def secondWorker():
+    while True:
+        await asyncio.sleep(1)
+        print("Second Worker Executed")
+
+
+if __name__ == "__main__":
     loop = asyncio.get_event_loop()
+
     try:
-        asyncio.ensure_future(myCoroutine())
+        asyncio.ensure_future(firstWorker())
+        asyncio.ensure_future(secondWorker())
         loop.run_forever()
     except KeyboardInterrupt:
         pass
     finally:
         print("Closing Loop")
         loop.close()
-
-
-main()

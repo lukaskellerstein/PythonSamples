@@ -1,7 +1,5 @@
 from gi.repository import Gtk
 
-# import pango
-
 
 data = [
     {"date": "1-1-2000", "open": 100, "high": 105, "low": 95, "close": 110},

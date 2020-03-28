@@ -8,6 +8,9 @@ print(myDict)
 myDict["id"] = "1"
 print(myDict)
 
+myDict["someobj"]["aaa"] = "bbb"
+print(myDict)
+
 # get
 myVal = myDict["name"]
 print(myVal)
@@ -41,4 +44,3 @@ if "valves-count" in myObj["engine"]:
 # get keys and values of the object
 print(myObj.keys())
 print(myObj.values())
-

@@ -1,24 +1,21 @@
 import asyncio
-import time
-
 
 # -------------------------------------------------------
-# RUN UNTIL COMPLETE
+# RUN FOREVER
 # -------------------------------------------------------
 
 
 async def myCoroutine():
-    i = 0
-    while i < 10:
+    while True:
         await asyncio.sleep(1)
-        i += 1
-        print(i)
+        print("Task Executed")
 
 
 def main():
     loop = asyncio.get_event_loop()
     try:
-        loop.run_until_complete(myCoroutine())
+        asyncio.ensure_future(myCoroutine())
+        loop.run_forever()
     except KeyboardInterrupt:
         pass
     finally:
@@ -26,4 +23,5 @@ def main():
         loop.close()
 
 
-main()
+if __name__ == "__main__":
+    main()
