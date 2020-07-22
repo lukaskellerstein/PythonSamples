@@ -1,4 +1,4 @@
-class Animal:
+class Animal(object):
     def __init__(self):
         print("Animal created")
 

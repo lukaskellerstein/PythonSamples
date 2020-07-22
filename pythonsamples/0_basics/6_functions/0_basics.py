@@ -17,7 +17,7 @@ mymethod2("WOOOOW")
 
 
 # function
-def myfunction():
+def myfunction() -> int:
     return 5
 
 

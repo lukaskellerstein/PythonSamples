@@ -1,4 +1,4 @@
-from random import shuffle, randint
+from random import shuffle, randint, random
 
 
 # -----------------------------------------
@@ -17,5 +17,7 @@ print(myArr)
 # Random number
 # -----------------------------------------
 
-myRnd = randint(0,100)
+myRnd = randint(0, 100)
 print(myRnd)
+
+print(int(128 * random()))

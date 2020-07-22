@@ -1,9 +1,28 @@
 # -----------------------------------
-# CLASS
+# OLD CLASS - doesn't have to inherit something - DONT USE
 # -----------------------------------
 
 
-class Dog:
+class Cat:
+
+    id = ""
+    name = ""
+    description = ""
+
+    # constructor WITHOUT additional parameters
+    def __init__(self):
+        print("constructor")
+
+    def makeSound(self):
+        print(f"{self.name} is meowing on you")
+
+
+# -----------------------------------
+# NEW CLASS - have to always inherit from something - default "object"
+# -----------------------------------
+
+
+class Dog(object):
 
     id = ""
     name = ""
@@ -17,7 +36,7 @@ class Dog:
         print(f"{self.name} is barking on you")
 
 
-class Vehicle:
+class Vehicle(object):
 
     id = ""
 
@@ -26,7 +45,7 @@ class Vehicle:
         self.whelsCount = wheelCount
 
 
-class Circle:
+class Circle(object):
 
     # class object attributes (can be accessed via class name only - as static variables)
     name = ""
@@ -42,7 +61,7 @@ class Circle:
         return self.radius * self.pi * 2  # accessed via self
 
 
-class Circle2:
+class Circle2(object):
 
     # class object attributes (can be accessed via class name only - as static variables)
     name = ""

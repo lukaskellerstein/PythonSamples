@@ -20,3 +20,8 @@ print(my_df)
 # -------------------------------
 my_df = pd.DataFrame(np.random.randn(3, 4), ["A", "B", "C"], ["W", "X", "Y", "Z"])
 print(my_df)
+
+
+# FOR-EACH -------------------------------
+for index, row in my_df.iterrows():
+    print(f"index - {index}, row={row}")

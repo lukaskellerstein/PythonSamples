@@ -13,6 +13,8 @@ myArrayStrings = ["a", "b", "c"]
 for item in myArrayStrings:
     print(item)
 
+for index, value in enumerate(myArrayStrings):
+    print(f"index - {index}, value - {value}")
 
 # ------------------------------------
 # Operations (1 Array)
@@ -52,6 +54,21 @@ print(aaa)
 # min, max
 print(min(myArray))
 print(max(myArray))
+
+# SORT
+# A function that returns the 'year' value:
+def myFunc(e):
+    return e["year"]
+
+
+cars = [
+    {"car": "Ford", "year": 2005},
+    {"car": "Mitsubishi", "year": 2000},
+    {"car": "BMW", "year": 2019},
+    {"car": "VW", "year": 2011},
+]
+
+cars.sort(key=myFunc)
 
 
 # ------------------------------------

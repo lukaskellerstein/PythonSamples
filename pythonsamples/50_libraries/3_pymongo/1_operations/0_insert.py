@@ -27,6 +27,7 @@ mylist = [
     {"name": "Betty", "address": "Green Grass 1"},
     {"name": "Richard", "address": "Sky st 331"},
     {"name": "Susan", "address": "One way 98"},
+    {"name": "Susan", "address": "Two way 00"},
     {"name": "Vicky", "address": "Yellow Garden 2"},
     {"name": "Ben", "address": "Park Lane 38"},
     {"name": "William", "address": "Central st 954"},

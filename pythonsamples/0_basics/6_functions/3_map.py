@@ -9,6 +9,6 @@ result = map(addx, myArr)
 # ------------------------------------------------
 
 # WHY THIS IS NOT WORKING ????
-print(result)
+print(list(result))
 
-[print(item) for item in result]
+# [print(item) for item in result]
