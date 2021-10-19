@@ -8,6 +8,7 @@ def getRandomColumns():
 
 my_df = pd.DataFrame(
     columns=[
+        "id",
         "symbol",
         "subsymbol",
         "bidSize",
@@ -24,13 +25,25 @@ my_df.set_index(["symbol", "subsymbol"], inplace=True)
 print(my_df)
 
 
-my_df.loc[("CL", "CLN0"),] = getRandomColumns()
-my_df.loc[("CL", "CLX0"),] = getRandomColumns()
-my_df.loc[("CL", "CLZ0"),] = getRandomColumns()
+my_df.loc[
+    ("CL", "CLN0"),
+] = getRandomColumns()
+my_df.loc[
+    ("CL", "CLX0"),
+] = getRandomColumns()
+my_df.loc[
+    ("CL", "CLZ0"),
+] = getRandomColumns()
 
 
-my_df.loc[("GC", "GCN0"),] = getRandomColumns()
-my_df.loc[("GC", "GCX0"),] = getRandomColumns()
-my_df.loc[("GC", "GCZ0"),] = getRandomColumns()
+my_df.loc[
+    ("GC", "GCN0"),
+] = getRandomColumns()
+my_df.loc[
+    ("GC", "GCX0"),
+] = getRandomColumns()
+my_df.loc[
+    ("GC", "GCZ0"),
+] = getRandomColumns()
 
 print(my_df)

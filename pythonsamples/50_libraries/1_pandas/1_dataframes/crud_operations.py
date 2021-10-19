@@ -65,7 +65,7 @@ col1 = my_df["X"]
 print(type(col1))
 print(col1)
 
-col1 = my_df["XXXXX"]
+# col1 = my_df["XXXXX"]
 
 # by index
 col2 = my_df.iloc[:, 1]
@@ -91,6 +91,7 @@ row2 = my_df.iloc[0]
 print(type(row2))
 print(row2)
 
+
 # First
 firstRow = my_df.head(1)
 
@@ -106,6 +107,10 @@ cell1 = my_df.loc["A", "Z"]
 print(type(cell1))
 print(cell1)
 
+# by "index" location
+cell1 = my_df.iloc[0, 0]
+print(type(cell1))
+print(cell1)
 
 # ----------------------------------------------------
 # Get data - sub dataframe
