@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "pythonsamples"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10.6"
+numpy = "^1.18.1"
+pandas_datareader = "^0.8.1"
+pandas = "^1.0.1"
+matplotlib = "^3.2.0"
+pygobject = "^3.44.1"
+xlrd = "^1.2.0"
+pymongo = "^3.10.1"
+aiohttp = "^3.6.2"
+pyqt5 = "5.14.0"
+pystore = "^0.1.15"
+quandl = "^3.5.0"
+dask = {extras = ["dataframe"], version = "^2.16.0"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+flake8 = "^3.7.9"
+black = {version = "^19.10b0", allow-prereleases = true}
+rope = "^0.16.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.masonry.api"

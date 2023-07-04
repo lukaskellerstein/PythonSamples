@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pythonsamples"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10.6"
+pystore = "^0.1.15"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+flake8 = "^3.7.9"
+black = {version = "^19.10b0", allow-prereleases = true}
+rope = "^0.16.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.masonry.api"
