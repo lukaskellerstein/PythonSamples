@@ -1,0 +1,18 @@
+digraph {
+	node [color=lightblue fontname=Helvetica shape=circle style=filled]
+	4312796240 [label=3]
+	4312796240 -> 4316809696 [label=L color=blue]
+	4316809696 [label=5]
+	4316809696 -> 4316809936 [label=L color=blue]
+	4316809936 [label=9]
+	4316809696 -> 4316809888 [label=R color=red]
+	4316809888 [label=0]
+	4312796240 -> 4312798736 [label=R color=red]
+	4312798736 [label=4]
+	4312798736 -> 4316809840 [label=L color=blue]
+	4316809840 [label=2]
+	4312798736 -> 4316809792 [label=R color=red]
+	4316809792 [label=1]
+	4316809792 -> 4316809984 [label=R color=red]
+	4316809984 [label=10]
+}
