@@ -68,11 +68,14 @@ from typing import List
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???) for __init__, O(???) for add
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 class KthLargestBruteForce:
 
@@ -82,15 +85,20 @@ class KthLargestBruteForce:
     def add(self, val: int) -> int:
         pass
 
+# ===== END CODE =====
+
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???) for __init__, O(???) for add
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 class KthLargest:
 
@@ -100,36 +108,64 @@ class KthLargest:
     def add(self, val: int) -> int:
         pass
 
+# ===== END CODE =====
+
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
+    # Test case 1: k=3
+    test_cases_1 = [
+        {"add": 3, "expected": 4},
+        {"add": 5, "expected": 5},
+        {"add": 10, "expected": 5},
+        {"add": 9, "expected": 8},
+        {"add": 4, "expected": 8},
+    ]
 
-    # Test case 1: Basic usage with k=3
-    kl = KthLargest(3, [4, 5, 8, 2])
-    assert kl.add(3) == 4
-    assert kl.add(5) == 5
-    assert kl.add(10) == 5
-    assert kl.add(9) == 8
-    assert kl.add(4) == 8
-
-    # Test case 2: Brute force with k=3
     kl_bf = KthLargestBruteForce(3, [4, 5, 8, 2])
-    assert kl_bf.add(3) == 4
-    assert kl_bf.add(5) == 5
-    assert kl_bf.add(10) == 5
-    assert kl_bf.add(9) == 8
-    assert kl_bf.add(4) == 8
+    kl = KthLargest(3, [4, 5, 8, 2])
 
-    # Test case 3: k=1, empty init
+    for test in test_cases_1:
+        val = test["add"]
+        expected = test["expected"]
+
+        result1 = kl_bf.add(val)
+        result2 = kl.add(val)
+
+        assert result1 == expected, f"Brute force failed: add({val}), got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed: add({val}), got {result2}, expected {expected}"
+
+        print(f"add({val}), expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    # Test case 2: k=1, empty init
+    test_cases_2 = [
+        {"add": -3, "expected": -3},
+        {"add": -2, "expected": -2},
+        {"add": -4, "expected": -2},
+        {"add": 0, "expected": 0},
+        {"add": 4, "expected": 4},
+    ]
+
+    kl_bf2 = KthLargestBruteForce(1, [])
     kl2 = KthLargest(1, [])
-    assert kl2.add(-3) == -3
-    assert kl2.add(-2) == -2
-    assert kl2.add(-4) == -2
-    assert kl2.add(0) == 0
-    assert kl2.add(4) == 4
 
-    print("All test cases passed!")
+    for test in test_cases_2:
+        val = test["add"]
+        expected = test["expected"]
+
+        result1 = kl_bf2.add(val)
+        result2 = kl2.add(val)
+
+        assert result1 == expected, f"Brute force failed: add({val}), got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed: add({val}), got {result2}, expected {expected}"
+
+        print(f"add({val}), expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

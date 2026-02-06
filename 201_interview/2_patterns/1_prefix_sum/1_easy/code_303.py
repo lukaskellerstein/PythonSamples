@@ -60,11 +60,14 @@ from typing import List
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
-# Time Complexity: O(???) init, O(???) per query
-# Space Complexity: O(???)
 
+# ===== YOUR ANSWER =====
+# Approach: Use range(left, right+1, 1) and sum += nums[i]
+# Time Complexity: O(1) init, O(n) per query
+# Space Complexity: O(n)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 class NumArrayBruteForce:
 
@@ -74,15 +77,20 @@ class NumArrayBruteForce:
     def sumRange(self, left: int, right: int) -> int:
         pass
 
+# ===== END CODE =====
+
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (Prefix Sum)
 # ============================================================
-# TODO: Describe your optimal approach
-#
-# Time Complexity: O(???) init, O(???) per query
-# Space Complexity: O(???)
 
+# ===== YOUR ANSWER =====
+# Approach: Precalculate a sum of values and use them to calculate the query sum
+# Time Complexity: O(n) init, O(1) per query
+# Space Complexity: O(n)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 class NumArray:
 
@@ -92,20 +100,52 @@ class NumArray:
     def sumRange(self, left: int, right: int) -> int:
         pass
 
+# ===== END CODE =====
+
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
     test_nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-    test_queries = [
-        (0, 0),   # Expected: 1
-        (0, 9),   # Expected: 55
-        (2, 6),   # Expected: 25
-        (5, 8),   # Expected: 30
+    test_cases = [
+        {
+            "args": (0, 0),
+            "expected": 1
+        },
+        {
+            "args": (0, 9),
+            "expected": 55
+        },
+        {
+            "args": (2, 6),
+            "expected": 25
+        },
+        {
+            "args": (5, 8),
+            "expected": 30
+        },
     ]
 
-    pass
+    bf = NumArrayBruteForce(test_nums)
+    opt = NumArray(test_nums)
+
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = bf.sumRange(*args)
+        result2 = opt.sumRange(*args)
+
+        assert result1 == expected, f"Brute force failed for {args}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {args}: got {result2}, expected {expected}"
+
+        print(f"args={args}, expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

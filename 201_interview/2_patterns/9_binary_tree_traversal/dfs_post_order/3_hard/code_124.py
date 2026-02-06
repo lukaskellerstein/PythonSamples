@@ -76,41 +76,50 @@ class TreeNode:
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def max_path_sum_brute_force(root: Optional[TreeNode]) -> int:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (Post-Order DFS)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def max_path_sum(root: Optional[TreeNode]) -> int:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
-if __name__ == "__main__":
-    # TODO: Write your test cases here
+# ===== YOUR CODE =====
 
+if __name__ == "__main__":
     # Test case 1: simple tree
     root1 = TreeNode(1)
     root1.left = TreeNode(2)
     root1.right = TreeNode(3)
-    # Expected: 6
 
     # Test case 2: tree with negative root
     root2 = TreeNode(-10)
@@ -118,16 +127,34 @@ if __name__ == "__main__":
     root2.right = TreeNode(20)
     root2.right.left = TreeNode(15)
     root2.right.right = TreeNode(7)
-    # Expected: 42
 
     # Test case 3: single negative node
     root3 = TreeNode(-3)
-    # Expected: -3
 
     # Test case 4: all negative
     root4 = TreeNode(-1)
     root4.left = TreeNode(-2)
     root4.right = TreeNode(-3)
-    # Expected: -1
 
-    pass
+    test_cases = [
+        {"args": (root1,), "expected": 6},
+        {"args": (root2,), "expected": 42},
+        {"args": (root3,), "expected": -3},
+        {"args": (root4,), "expected": -1},
+    ]
+
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = max_path_sum_brute_force(*args)
+        result2 = max_path_sum(*args)
+
+        assert result1 == expected, f"Brute force failed: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed: got {result2}, expected {expected}"
+
+        print(f"expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

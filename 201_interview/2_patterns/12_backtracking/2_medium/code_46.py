@@ -57,33 +57,73 @@ from typing import List
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION (Shrinking remaining list)
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def permute_brute_force(nums: List[int]) -> List[List[int]]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (Backtracking with used set)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def permute(nums: List[int]) -> List[List[int]]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
-    pass
+    test_cases = [
+        {
+            "args": ([1,2,3],),
+            "expected": [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+        },
+        {
+            "args": ([0,1],),
+            "expected": [[0,1],[1,0]]
+        },
+        {
+            "args": ([1],),
+            "expected": [[1]]
+        },
+    ]
+
+    for test in test_cases:
+        args = test["args"]
+        expected = sorted(test["expected"])
+
+        result1 = sorted(permute_brute_force(*args))
+        result2 = sorted(permute(*args))
+
+        assert result1 == expected, f"Brute force failed for {args}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {args}: got {result2}, expected {expected}"
+
+        print(f"args={args}, expected={expected} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

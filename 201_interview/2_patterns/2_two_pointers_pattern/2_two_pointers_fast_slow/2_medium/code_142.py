@@ -77,38 +77,47 @@ class ListNode:
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION (HashSet)
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def detect_cycle_brute_force(head: Optional[ListNode]) -> Optional[ListNode]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (Floyd's Cycle Detection)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def detect_cycle(head: Optional[ListNode]) -> Optional[ListNode]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
-if __name__ == "__main__":
-    # TODO: Write your test cases here
+# ===== YOUR CODE =====
 
+if __name__ == "__main__":
     # Test 1: Cycle at node with value 2
-    # 3 -> 2 -> 0 -> -4 -> (back to 2)
     node1 = ListNode(3)
     node2 = ListNode(2)
     node3 = ListNode(0)
@@ -116,12 +125,31 @@ if __name__ == "__main__":
     node1.next = node2
     node2.next = node3
     node3.next = node4
-    node4.next = node2  # Creates cycle
-    # Expected: Node with value 2
+    node4.next = node2
+
+    result1 = detect_cycle_brute_force(node1)
+    result2 = detect_cycle(node1)
+    assert result1 == node2, f"Brute force failed: expected node(2), got {result1}"
+    assert result2 == node2, f"Optimal failed: expected node(2), got {result2}"
+    print(f"Test 1 (cycle at 2): brute_force={result1.val}, optimal={result2.val} ✓")
 
     # Test 2: No cycle
-    # 1 -> 2 -> 3
     no_cycle = ListNode(1, ListNode(2, ListNode(3)))
-    # Expected: None
+    result1 = detect_cycle_brute_force(no_cycle)
+    result2 = detect_cycle(no_cycle)
+    assert result1 is None, f"Brute force failed: expected None, got {result1}"
+    assert result2 is None, f"Optimal failed: expected None, got {result2}"
+    print(f"Test 2 (no cycle): brute_force={result1}, optimal={result2} ✓")
 
-    pass
+    # Test 3: Single node with self-cycle
+    single = ListNode(1)
+    single.next = single
+    result1 = detect_cycle_brute_force(single)
+    result2 = detect_cycle(single)
+    assert result1 == single, f"Brute force failed: expected node(1)"
+    assert result2 == single, f"Optimal failed: expected node(1)"
+    print(f"Test 3 (self-cycle): brute_force={result1.val}, optimal={result2.val} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

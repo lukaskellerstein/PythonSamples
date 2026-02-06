@@ -53,51 +53,81 @@ from typing import List
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def find_kth_largest_brute_force(nums: List[int], k: int) -> int:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def find_kth_largest(nums: List[int], k: int) -> int:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
+    test_cases = [
+        {
+            "args": ([3, 2, 1, 5, 6, 4], 2),
+            "expected": 5
+        },
+        {
+            "args": ([3, 2, 3, 1, 2, 4, 5, 5, 6], 4),
+            "expected": 4
+        },
+        {
+            "args": ([1], 1),
+            "expected": 1
+        },
+        {
+            "args": ([7, 7, 7, 7], 2),
+            "expected": 7
+        },
+        {
+            "args": ([-1, -2, -3, -4], 1),
+            "expected": -1
+        },
+    ]
 
-    # Test case 1
-    assert find_kth_largest_brute_force([3, 2, 1, 5, 6, 4], 2) == 5
-    assert find_kth_largest([3, 2, 1, 5, 6, 4], 2) == 5
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
 
-    # Test case 2
-    assert find_kth_largest_brute_force([3, 2, 3, 1, 2, 4, 5, 5, 6], 4) == 4
-    assert find_kth_largest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4) == 4
+        result1 = find_kth_largest_brute_force(*args)
+        result2 = find_kth_largest(*args)
 
-    # Test case 3: Single element
-    assert find_kth_largest([1], 1) == 1
+        assert result1 == expected, f"Brute force failed for {args}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {args}: got {result2}, expected {expected}"
 
-    # Test case 4: All same elements
-    assert find_kth_largest([7, 7, 7, 7], 2) == 7
+        print(f"args={args}, expected={expected}, brute_force={result1}, optimal={result2} ✓")
 
-    # Test case 5: Negative numbers
-    assert find_kth_largest([-1, -2, -3, -4], 1) == -1
+    print("\nAll tests passed!")
 
-    print("All test cases passed!")
+# ===== END CODE =====

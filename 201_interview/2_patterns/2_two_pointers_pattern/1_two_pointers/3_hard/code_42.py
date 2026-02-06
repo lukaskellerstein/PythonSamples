@@ -62,41 +62,81 @@ from typing import List
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def trap_brute_force(height: List[int]) -> int:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (Two Pointers)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def trap(height: List[int]) -> int:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
     test_cases = [
-        ([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1], 6),
-        ([4, 2, 0, 3, 2, 5], 9),
-        ([1, 0, 1], 1),
-        ([3, 0, 0, 2, 0, 4], 10),
-        ([], 0),
+        {
+            "args": ([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1],),
+            "expected": 6
+        },
+        {
+            "args": ([4, 2, 0, 3, 2, 5],),
+            "expected": 9
+        },
+        {
+            "args": ([1, 0, 1],),
+            "expected": 1
+        },
+        {
+            "args": ([3, 0, 0, 2, 0, 4],),
+            "expected": 10
+        },
+        {
+            "args": ([],),
+            "expected": 0
+        },
     ]
 
-    pass
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = trap_brute_force(*args)
+        result2 = trap(*args)
+
+        assert result1 == expected, f"Brute force failed for {args}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {args}: got {result2}, expected {expected}"
+
+        print(f"args={args}, expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

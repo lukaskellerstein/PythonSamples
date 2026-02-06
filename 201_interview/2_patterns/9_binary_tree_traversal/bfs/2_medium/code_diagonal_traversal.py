@@ -64,36 +64,46 @@ class TreeNode:
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def diagonal_traversal_brute_force(root: Optional[TreeNode]) -> List[List[int]]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def diagonal_traversal(root: Optional[TreeNode]) -> List[List[int]]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
-if __name__ == "__main__":
-    # TODO: Write your test cases here
+# ===== YOUR CODE =====
 
+if __name__ == "__main__":
     # Test case 1
     root1 = TreeNode(8)
     root1.left = TreeNode(3)
@@ -104,15 +114,30 @@ if __name__ == "__main__":
     root1.left.right.left = TreeNode(4)
     root1.left.right.right = TreeNode(7)
     root1.right.right.left = TreeNode(13)
-    # Expected: [[8, 10, 14], [3, 6, 7, 13], [1, 4]]
 
     # Test case 2
     root2 = TreeNode(1)
     root2.left = TreeNode(2)
     root2.right = TreeNode(3)
-    # Expected: [[1, 3], [2]]
 
-    # Test case 3: empty tree
-    # Expected: []
+    test_cases = [
+        {"args": (root1,), "expected": [[8, 10, 14], [3, 6, 7, 13], [1, 4]]},
+        {"args": (root2,), "expected": [[1, 3], [2]]},
+        {"args": (None,), "expected": []},
+    ]
 
-    pass
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = diagonal_traversal_brute_force(*args)
+        result2 = diagonal_traversal(*args)
+
+        assert result1 == expected, f"Brute force failed: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed: got {result2}, expected {expected}"
+
+        print(f"expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

@@ -76,43 +76,52 @@ class TreeNode:
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def vertical_traversal_brute_force(root: Optional[TreeNode]) -> List[List[int]]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def vertical_traversal(root: Optional[TreeNode]) -> List[List[int]]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
-if __name__ == "__main__":
-    # TODO: Write your test cases here
+# ===== YOUR CODE =====
 
+if __name__ == "__main__":
     # Test case 1
     root1 = TreeNode(3)
     root1.left = TreeNode(9)
     root1.right = TreeNode(20)
     root1.right.left = TreeNode(15)
     root1.right.right = TreeNode(7)
-    # Expected: [[9], [3, 15], [20], [7]]
 
     # Test case 2: nodes at same position
     root2 = TreeNode(1)
@@ -122,7 +131,6 @@ if __name__ == "__main__":
     root2.left.right = TreeNode(5)
     root2.right.left = TreeNode(6)
     root2.right.right = TreeNode(7)
-    # Expected: [[4], [2], [1, 5, 6], [3], [7]]
 
     # Test case 3: same position, different values
     root3 = TreeNode(1)
@@ -131,6 +139,25 @@ if __name__ == "__main__":
     root3.left.left = TreeNode(4)
     root3.left.right = TreeNode(6)
     root3.left.right.left = TreeNode(5)
-    # Expected: [[4], [2, 5], [1, 6], [3]]
 
-    pass
+    test_cases = [
+        {"args": (root1,), "expected": [[9], [3, 15], [20], [7]]},
+        {"args": (root2,), "expected": [[4], [2], [1, 5, 6], [3], [7]]},
+        {"args": (root3,), "expected": [[4], [2, 5], [1, 6], [3]]},
+    ]
+
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = vertical_traversal_brute_force(*args)
+        result2 = vertical_traversal(*args)
+
+        assert result1 == expected, f"Brute force failed: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed: got {result2}, expected {expected}"
+
+        print(f"expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

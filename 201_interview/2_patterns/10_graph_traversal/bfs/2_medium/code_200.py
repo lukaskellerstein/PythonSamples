@@ -67,33 +67,71 @@ from collections import deque
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def num_islands_brute_force(grid: List[List[str]]) -> int:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (BFS)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def num_islands(grid: List[List[str]]) -> int:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
-    pass
+    import copy
+
+    test_cases = [
+        {
+            "args": ([["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]],),
+            "expected": 1
+        },
+        {
+            "args": ([["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]],),
+            "expected": 3
+        },
+    ]
+
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = num_islands_brute_force(copy.deepcopy(args[0]))
+        result2 = num_islands(copy.deepcopy(args[0]))
+
+        assert result1 == expected, f"Brute force failed: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed: got {result2}, expected {expected}"
+
+        print(f"expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

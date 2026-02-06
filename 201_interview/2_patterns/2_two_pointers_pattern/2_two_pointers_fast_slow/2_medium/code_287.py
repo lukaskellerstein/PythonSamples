@@ -67,40 +67,77 @@ from typing import List
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def find_duplicate_brute_force(nums: List[int]) -> int:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (Floyd's Cycle Detection)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def find_duplicate(nums: List[int]) -> int:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
     test_cases = [
-        ([1, 3, 4, 2, 2], 2),
-        ([3, 1, 3, 4, 2], 3),
-        ([1, 1], 1),
-        ([1, 1, 2], 1),
+        {
+            "args": ([1, 3, 4, 2, 2],),
+            "expected": 2
+        },
+        {
+            "args": ([3, 1, 3, 4, 2],),
+            "expected": 3
+        },
+        {
+            "args": ([1, 1],),
+            "expected": 1
+        },
+        {
+            "args": ([1, 1, 2],),
+            "expected": 1
+        },
     ]
 
-    pass
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = find_duplicate_brute_force(*args)
+        result2 = find_duplicate(*args)
+
+        assert result1 == expected, f"Brute force failed for {args}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {args}: got {result2}, expected {expected}"
+
+        print(f"args={args}, expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

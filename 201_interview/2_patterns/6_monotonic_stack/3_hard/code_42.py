@@ -56,35 +56,75 @@ from typing import List
 
 
 # ============================================================
-# PART 1 — BRUTE FORCE SOLUTION
+# PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 
 def trap_brute_force(height: List[int]) -> int:
     pass
 
 
+# ===== END CODE =====
+
+
 # ============================================================
-# PART 2 — OPTIMAL SOLUTION
+# PART 2 -- OPTIMAL SOLUTION
 # ============================================================
-# TODO: Describe your optimal approach (monotonic stack or two pointers)
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 
 def trap(height: List[int]) -> int:
     pass
 
 
+# ===== END CODE =====
+
+
 # ============================================================
-# PART 3 — TEST CASES
+# PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
-    pass
+    test_cases = [
+        {
+            "args": ([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1],),
+            "expected": 6,
+        },
+        {
+            "args": ([4, 2, 0, 3, 2, 5],),
+            "expected": 9,
+        },
+    ]
+
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = trap_brute_force(*args)
+        result2 = trap(*args)
+
+        assert result1 == expected, f"Brute force failed for {args}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {args}: got {result2}, expected {expected}"
+
+        print(f"args={args}, expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

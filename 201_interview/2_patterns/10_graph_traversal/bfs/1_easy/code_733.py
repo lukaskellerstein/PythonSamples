@@ -63,33 +63,71 @@ from collections import deque
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def flood_fill_brute_force(image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (BFS)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def flood_fill(image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
-    pass
+    import copy
+
+    test_cases = [
+        {
+            "args": ([[1,1,1],[1,1,0],[1,0,1]], 1, 1, 2),
+            "expected": [[2,2,2],[2,2,0],[2,0,1]]
+        },
+        {
+            "args": ([[0,0,0],[0,0,0]], 0, 0, 0),
+            "expected": [[0,0,0],[0,0,0]]
+        },
+    ]
+
+    for test in test_cases:
+        image, sr, sc, color = test["args"]
+        expected = test["expected"]
+
+        result1 = flood_fill_brute_force(copy.deepcopy(image), sr, sc, color)
+        result2 = flood_fill(copy.deepcopy(image), sr, sc, color)
+
+        assert result1 == expected, f"Brute force failed: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed: got {result2}, expected {expected}"
+
+        print(f"args=({image}, {sr}, {sc}, {color}), expected={expected} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

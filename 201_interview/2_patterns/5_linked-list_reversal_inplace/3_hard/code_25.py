@@ -67,25 +67,36 @@ class ListNode:
 
 
 # ============================================================
-# PART 1 — ITERATIVE SOLUTION
+# PART 1 -- ITERATIVE SOLUTION
 # ============================================================
-# TODO: Describe your iterative approach (count ahead, reverse group, reconnect)
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 
 def reverse_k_group(head: Optional[ListNode], k: int) -> Optional[ListNode]:
     pass
 
 
+# ===== END CODE =====
+
+
 # ============================================================
-# PART 2 — RECURSIVE SOLUTION
+# PART 2 -- RECURSIVE SOLUTION
 # ============================================================
-# TODO: Describe your recursive approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 
 def reverse_k_group_recursive(
@@ -94,8 +105,11 @@ def reverse_k_group_recursive(
     pass
 
 
+# ===== END CODE =====
+
+
 # ============================================================
-# PART 3 — TEST CASES
+# PART 3 -- TEST CASES
 # ============================================================
 
 
@@ -116,6 +130,36 @@ def list_to_array(head: Optional[ListNode]) -> list:
     return result
 
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
-    pass
+    test_cases = [
+        {
+            "args": ([1, 2, 3, 4, 5], 2),
+            "expected": [2, 1, 4, 3, 5]
+        },
+        {
+            "args": ([1, 2, 3, 4, 5], 3),
+            "expected": [3, 2, 1, 4, 5]
+        },
+        {
+            "args": ([1, 2, 3, 4, 5], 1),
+            "expected": [1, 2, 3, 4, 5]
+        },
+    ]
+
+    for test in test_cases:
+        values, k = test["args"]
+        expected = test["expected"]
+
+        result1 = list_to_array(reverse_k_group(build_list(values), k))
+        result2 = list_to_array(reverse_k_group_recursive(build_list(values), k))
+
+        assert result1 == expected, f"Iterative failed for {test['args']}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Recursive failed for {test['args']}: got {result2}, expected {expected}"
+
+        print(f"args={test['args']}, expected={expected}, iterative={result1}, recursive={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

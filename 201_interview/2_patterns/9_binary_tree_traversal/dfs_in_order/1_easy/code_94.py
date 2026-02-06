@@ -76,49 +76,53 @@ class TreeNode:
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION (Recursive)
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def inorder_traversal_recursive(root: Optional[TreeNode]) -> List[int]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (Iterative with Stack)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def inorder_traversal(root: Optional[TreeNode]) -> List[int]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
-if __name__ == "__main__":
-    # TODO: Write your test cases here
+# ===== YOUR CODE =====
 
+if __name__ == "__main__":
     # Test case 1
     root1 = TreeNode(1)
     root1.right = TreeNode(2)
     root1.right.left = TreeNode(3)
-    # Expected: [1, 3, 2]
-
-    # Test case 2: empty tree
-    root2 = None
-    # Expected: []
 
     # Test case 3: single node
     root3 = TreeNode(1)
-    # Expected: [1]
 
     # Test case 4: BST
     root4 = TreeNode(4)
@@ -128,6 +132,26 @@ if __name__ == "__main__":
     root4.left.right = TreeNode(3)
     root4.right.left = TreeNode(5)
     root4.right.right = TreeNode(7)
-    # Expected: [1, 2, 3, 4, 5, 6, 7]
 
-    pass
+    test_cases = [
+        {"args": (root1,), "expected": [1, 3, 2]},
+        {"args": (None,), "expected": []},
+        {"args": (root3,), "expected": [1]},
+        {"args": (root4,), "expected": [1, 2, 3, 4, 5, 6, 7]},
+    ]
+
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = inorder_traversal_recursive(*args)
+        result2 = inorder_traversal(*args)
+
+        assert result1 == expected, f"Recursive failed: got {result1}, expected {expected}"
+        assert result2 == expected, f"Iterative failed: got {result2}, expected {expected}"
+
+        print(f"expected={expected}, recursive={result1}, iterative={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

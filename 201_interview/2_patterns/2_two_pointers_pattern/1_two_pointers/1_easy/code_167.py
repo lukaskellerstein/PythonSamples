@@ -58,40 +58,77 @@ from typing import List
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
-# Time Complexity: O(???)
-# Space Complexity: O(???)
 
+# ===== YOUR ANSWER =====
+# Approach: Two for-loops - outer and inner, compare all numbers, remove duplicated indexes
+# Time Complexity: O(n^2)
+# Space Complexity: O(1)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 def two_sum_brute_force(nums: List[int], target: int) -> List[int]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (Two Pointers)
 # ============================================================
-# TODO: Describe your optimal approach
-#
-# Time Complexity: O(???)
-# Space Complexity: O(???)
 
+# ===== YOUR ANSWER =====
+# Approach: two pointers in one loop
+# Time Complexity: O(n)
+# Space Complexity: O(1)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 def two_sum(nums: List[int], target: int) -> List[int]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
     test_cases = [
-        ([1, 3, 4, 5, 6, 7, 10, 11], 9),   # Expected: [1, 4]
-        ([2, 7, 11, 15], 9),                 # Expected: [0, 1]
-        ([2, 3, 4], 6),                      # Expected: [0, 2]
-        ([-1, 0], -1),                       # Expected: [0, 1]
+        {
+            "args": ([1, 3, 4, 5, 6, 7, 10, 11], 9),
+            "expected": [1, 4]
+        },
+        {
+            "args": ([2, 7, 11, 15], 9),
+            "expected": [0, 1]
+        },
+        {
+            "args": ([2, 3, 4], 6),
+            "expected": [0, 2]
+        },
+        {
+            "args": ([-1, 0], -1),
+            "expected": [0, 1]
+        },
     ]
 
-    pass
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = two_sum_brute_force(*args)
+        result2 = two_sum(*args)
+
+        assert result1 == expected, f"Brute force failed for {args}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {args}: got {result2}, expected {expected}"
+
+        print(f"args={args}, expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

@@ -66,33 +66,47 @@ class ListNode:
 
 
 # ============================================================
-# PART 1 — ITERATIVE SOLUTION
+# PART 1 -- ITERATIVE SOLUTION
 # ============================================================
-# TODO: Describe your iterative approach (three-pointer technique)
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 
 def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
     pass
 
 
+# ===== END CODE =====
+
+
 # ============================================================
-# PART 2 — RECURSIVE SOLUTION
+# PART 2 -- RECURSIVE SOLUTION
 # ============================================================
-# TODO: Describe your recursive approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 
 def reverse_list_recursive(head: Optional[ListNode]) -> Optional[ListNode]:
     pass
 
 
+# ===== END CODE =====
+
+
 # ============================================================
-# PART 3 — TEST CASES
+# PART 3 -- TEST CASES
 # ============================================================
 
 
@@ -113,6 +127,36 @@ def list_to_array(head: Optional[ListNode]) -> list:
     return result
 
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
-    pass
+    test_cases = [
+        {
+            "args": [1, 2, 3, 4, 5],
+            "expected": [5, 4, 3, 2, 1]
+        },
+        {
+            "args": [1, 2],
+            "expected": [2, 1]
+        },
+        {
+            "args": [],
+            "expected": []
+        },
+    ]
+
+    for test in test_cases:
+        values = test["args"]
+        expected = test["expected"]
+
+        result1 = list_to_array(reverse_list(build_list(values)))
+        result2 = list_to_array(reverse_list_recursive(build_list(values)))
+
+        assert result1 == expected, f"Iterative failed for {values}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Recursive failed for {values}: got {result2}, expected {expected}"
+
+        print(f"values={values}, expected={expected}, iterative={result1}, recursive={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

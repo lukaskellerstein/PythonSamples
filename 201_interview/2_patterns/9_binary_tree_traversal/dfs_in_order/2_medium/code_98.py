@@ -70,57 +70,84 @@ class TreeNode:
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION (Min/Max Range Checking)
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def is_valid_bst_brute_force(root: Optional[TreeNode]) -> bool:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (In-Order Traversal)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def is_valid_bst(root: Optional[TreeNode]) -> bool:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
-if __name__ == "__main__":
-    # TODO: Write your test cases here
+# ===== YOUR CODE =====
 
+if __name__ == "__main__":
     # Test case 1: invalid BST
     root1 = TreeNode(5)
     root1.left = TreeNode(1)
     root1.right = TreeNode(4)
     root1.right.left = TreeNode(3)
     root1.right.right = TreeNode(6)
-    # Expected: False
 
     # Test case 2: valid BST
     root2 = TreeNode(2)
     root2.left = TreeNode(1)
     root2.right = TreeNode(3)
-    # Expected: True
 
     # Test case 3: single node
     root3 = TreeNode(1)
-    # Expected: True
 
     # Test case 4: equal values (invalid)
     root4 = TreeNode(1)
     root4.left = TreeNode(1)
-    # Expected: False
 
-    pass
+    test_cases = [
+        {"args": (root1,), "expected": False},
+        {"args": (root2,), "expected": True},
+        {"args": (root3,), "expected": True},
+        {"args": (root4,), "expected": False},
+    ]
+
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = is_valid_bst_brute_force(*args)
+        result2 = is_valid_bst(*args)
+
+        assert result1 == expected, f"Brute force failed: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed: got {result2}, expected {expected}"
+
+        print(f"expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

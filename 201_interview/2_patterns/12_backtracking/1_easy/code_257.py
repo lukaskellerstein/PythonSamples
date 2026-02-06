@@ -65,33 +65,72 @@ class TreeNode:
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION (String concatenation, no backtracking)
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def binary_tree_paths_brute_force(root: Optional[TreeNode]) -> List[str]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (Backtracking)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def binary_tree_paths(root: Optional[TreeNode]) -> List[str]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
-    pass
+    # Test 1
+    root1 = TreeNode(1)
+    root1.left = TreeNode(2)
+    root1.right = TreeNode(3)
+    root1.left.right = TreeNode(5)
+
+    # Test 2: single node
+    root2 = TreeNode(1)
+
+    test_cases = [
+        {"args": (root1,), "expected": ["1->2->5", "1->3"]},
+        {"args": (root2,), "expected": ["1"]},
+    ]
+
+    for test in test_cases:
+        args = test["args"]
+        expected = sorted(test["expected"])
+
+        result1 = sorted(binary_tree_paths_brute_force(*args))
+        result2 = sorted(binary_tree_paths(*args))
+
+        assert result1 == expected, f"Brute force failed: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed: got {result2}, expected {expected}"
+
+        print(f"expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

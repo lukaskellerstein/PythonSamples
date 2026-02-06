@@ -56,12 +56,16 @@ from typing import List
 
 
 # ============================================================
-# PART 1 — BRUTE FORCE SOLUTION
+# PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 
 def next_greater_element_brute_force(
@@ -70,23 +74,59 @@ def next_greater_element_brute_force(
     pass
 
 
+# ===== END CODE =====
+
+
 # ============================================================
-# PART 2 — OPTIMAL SOLUTION
+# PART 2 -- OPTIMAL SOLUTION
 # ============================================================
-# TODO: Describe your optimal approach using a monotonic stack
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 
 def next_greater_element(nums1: List[int], nums2: List[int]) -> List[int]:
     pass
 
 
+# ===== END CODE =====
+
+
 # ============================================================
-# PART 3 — TEST CASES
+# PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
-    pass
+    test_cases = [
+        {
+            "args": ([4, 1, 2], [1, 3, 4, 2]),
+            "expected": [-1, 3, -1],
+        },
+        {
+            "args": ([2, 4], [1, 2, 3, 4]),
+            "expected": [3, -1],
+        },
+    ]
+
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = next_greater_element_brute_force(*args)
+        result2 = next_greater_element(*args)
+
+        assert result1 == expected, f"Brute force failed for {args}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {args}: got {result2}, expected {expected}"
+
+        print(f"args={args}, expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

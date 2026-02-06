@@ -70,11 +70,14 @@ class TreeNode:
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION (DFS Pre-Order)
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def serialize_brute_force(root: Optional[TreeNode]) -> str:
     pass
@@ -83,15 +86,20 @@ def serialize_brute_force(root: Optional[TreeNode]) -> str:
 def deserialize_brute_force(data: str) -> Optional[TreeNode]:
     pass
 
+# ===== END CODE =====
+
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (BFS Level-Order)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def serialize(root: Optional[TreeNode]) -> str:
     pass
@@ -100,31 +108,56 @@ def serialize(root: Optional[TreeNode]) -> str:
 def deserialize(data: str) -> Optional[TreeNode]:
     pass
 
+# ===== END CODE =====
+
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
-if __name__ == "__main__":
-    # TODO: Write your test cases here
+# ===== YOUR CODE =====
 
+if __name__ == "__main__":
     # Test case 1
     root1 = TreeNode(1)
     root1.left = TreeNode(2)
     root1.right = TreeNode(3)
     root1.right.left = TreeNode(4)
     root1.right.right = TreeNode(5)
-    # serialize(root1) -> "1,2,3,null,null,4,5"
-    # deserialize("1,2,3,null,null,4,5") -> reconstructed tree
 
     # Test case 2: empty tree
     root2 = None
-    # serialize(root2) -> ""
-    # deserialize("") -> None
 
     # Test case 3: single node
     root3 = TreeNode(42)
-    # serialize(root3) -> "42"
-    # deserialize("42") -> TreeNode(42)
 
-    pass
+    test_cases = [
+        {"root": root1, "description": "standard tree"},
+        {"root": root2, "description": "empty tree"},
+        {"root": root3, "description": "single node"},
+    ]
+
+    def trees_equal(t1, t2):
+        if not t1 and not t2:
+            return True
+        if not t1 or not t2:
+            return False
+        return t1.val == t2.val and trees_equal(t1.left, t2.left) and trees_equal(t1.right, t2.right)
+
+    for test in test_cases:
+        root = test["root"]
+        desc = test["description"]
+
+        s1 = serialize_brute_force(root)
+        r1 = deserialize_brute_force(s1)
+        assert trees_equal(root, r1), f"Brute force round-trip failed for {desc}"
+
+        s2 = serialize(root)
+        r2 = deserialize(s2)
+        assert trees_equal(root, r2), f"Optimal round-trip failed for {desc}"
+
+        print(f"{desc}: brute_force='{s1}', optimal='{s2}' ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

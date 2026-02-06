@@ -66,27 +66,37 @@ class ListNode:
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION (Array Conversion)
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def middle_node_brute_force(head: Optional[ListNode]) -> Optional[ListNode]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (Fast/Slow Pointers)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def middle_node(head: Optional[ListNode]) -> Optional[ListNode]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
@@ -104,14 +114,43 @@ def create_linked_list(values: List[int]) -> Optional[ListNode]:
         current = current.next
     return head
 
+# ===== YOUR CODE =====
 
 if __name__ == "__main__":
-    # TODO: Write your test cases here
     test_cases = [
-        ([1, 2, 3, 4, 5], 3),       # Odd length -> middle is 3
-        ([1, 2, 3, 4, 5, 6], 4),    # Even length -> second middle is 4
-        ([1], 1),                    # Single element -> 1
-        ([1, 2], 2),                 # Two elements -> second middle is 2
+        {
+            "args": [1, 2, 3, 4, 5],
+            "expected": 3
+        },
+        {
+            "args": [1, 2, 3, 4, 5, 6],
+            "expected": 4
+        },
+        {
+            "args": [1],
+            "expected": 1
+        },
+        {
+            "args": [1, 2],
+            "expected": 2
+        },
     ]
 
-    pass
+    for test in test_cases:
+        values = test["args"]
+        expected = test["expected"]
+
+        head1 = create_linked_list(values)
+        head2 = create_linked_list(values)
+
+        result1 = middle_node_brute_force(head1)
+        result2 = middle_node(head2)
+
+        assert result1 and result1.val == expected, f"Brute force failed for {values}: got {result1.val if result1 else None}, expected {expected}"
+        assert result2 and result2.val == expected, f"Optimal failed for {values}: got {result2.val if result2 else None}, expected {expected}"
+
+        print(f"values={values}, expected={expected}, brute_force={result1.val}, optimal={result2.val} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

@@ -67,33 +67,75 @@ from typing import List
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION (Explicit visited set)
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def exist_brute_force(board: List[List[str]], word: str) -> bool:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (In-place visited marking)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def exist(board: List[List[str]], word: str) -> bool:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
-    pass
+    board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+
+    test_cases = [
+        {
+            "args": ([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED"),
+            "expected": True
+        },
+        {
+            "args": ([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "SEE"),
+            "expected": True
+        },
+        {
+            "args": ([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCB"),
+            "expected": False
+        },
+    ]
+
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = exist_brute_force(*args)
+        result2 = exist(*args)
+
+        assert result1 == expected, f"Brute force failed for word='{args[1]}': got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for word='{args[1]}': got {result2}, expected {expected}"
+
+        print(f"word='{args[1]}', expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

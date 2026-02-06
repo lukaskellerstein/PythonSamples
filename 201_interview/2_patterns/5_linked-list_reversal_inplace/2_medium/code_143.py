@@ -58,33 +58,47 @@ class ListNode:
 
 
 # ============================================================
-# PART 1 — BRUTE FORCE SOLUTION
+# PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach (e.g., collect nodes into array, reorder)
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 
 def reorder_list_brute_force(head: Optional[ListNode]) -> None:
     pass
 
 
+# ===== END CODE =====
+
+
 # ============================================================
-# PART 2 — OPTIMAL SOLUTION
+# PART 2 -- OPTIMAL SOLUTION
 # ============================================================
-# TODO: Describe your optimal in-place approach (find middle, reverse, merge)
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
+
+# ===== YOUR CODE =====
 
 
 def reorder_list(head: Optional[ListNode]) -> None:
     pass
 
 
+# ===== END CODE =====
+
+
 # ============================================================
-# PART 3 — TEST CASES
+# PART 3 -- TEST CASES
 # ============================================================
 
 
@@ -105,6 +119,37 @@ def list_to_array(head: Optional[ListNode]) -> list:
     return result
 
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
-    pass
+    test_cases = [
+        {
+            "args": [1, 2, 3, 4],
+            "expected": [1, 4, 2, 3]
+        },
+        {
+            "args": [1, 2, 3, 4, 5],
+            "expected": [1, 5, 2, 4, 3]
+        },
+    ]
+
+    for test in test_cases:
+        values = test["args"]
+        expected = test["expected"]
+
+        head1 = build_list(values)
+        reorder_list_brute_force(head1)
+        result1 = list_to_array(head1)
+
+        head2 = build_list(values)
+        reorder_list(head2)
+        result2 = list_to_array(head2)
+
+        assert result1 == expected, f"Brute force failed for {values}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {values}: got {result2}, expected {expected}"
+
+        print(f"values={values}, expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

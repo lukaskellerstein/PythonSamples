@@ -1,5 +1,6 @@
 
 
+
 # ============================================================
 # PROBLEM: Find Median from Data Stream (LeetCode 295)
 # ============================================================
@@ -75,11 +76,14 @@
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???) for addNum, O(???) for findMedian
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 class MedianFinderBruteForce:
 
@@ -92,15 +96,20 @@ class MedianFinderBruteForce:
     def findMedian(self) -> float:
         pass
 
+# ===== END CODE =====
+
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???) for addNum, O(???) for findMedian
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 class MedianFinder:
 
@@ -113,45 +122,65 @@ class MedianFinder:
     def findMedian(self) -> float:
         pass
 
+# ===== END CODE =====
+
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
+    # Test case 1: Basic usage
+    test_operations = [
+        {"op": "addNum", "val": 1, "expected": None},
+        {"op": "addNum", "val": 2, "expected": None},
+        {"op": "findMedian", "val": None, "expected": 1.5},
+        {"op": "addNum", "val": 3, "expected": None},
+        {"op": "findMedian", "val": None, "expected": 2.0},
+    ]
 
-    # Test case 1: Basic usage (optimal)
-    mf = MedianFinder()
-    mf.addNum(1)
-    mf.addNum(2)
-    assert mf.findMedian() == 1.5
-    mf.addNum(3)
-    assert mf.findMedian() == 2.0
-
-    # Test case 2: Basic usage (brute force)
     mf_bf = MedianFinderBruteForce()
-    mf_bf.addNum(1)
-    mf_bf.addNum(2)
-    assert mf_bf.findMedian() == 1.5
-    mf_bf.addNum(3)
-    assert mf_bf.findMedian() == 2.0
+    mf = MedianFinder()
 
-    # Test case 3: Larger stream
+    for test in test_operations:
+        op = test["op"]
+        val = test["val"]
+        expected = test["expected"]
+
+        if op == "addNum":
+            mf_bf.addNum(val)
+            mf.addNum(val)
+            print(f"addNum({val}) ✓")
+        elif op == "findMedian":
+            result1 = mf_bf.findMedian()
+            result2 = mf.findMedian()
+            assert result1 == expected, f"Brute force failed: findMedian() got {result1}, expected {expected}"
+            assert result2 == expected, f"Optimal failed: findMedian() got {result2}, expected {expected}"
+            print(f"findMedian(), expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    # Test case 2: Larger stream
+    mf2_bf = MedianFinderBruteForce()
     mf2 = MedianFinder()
     for num in [6, 10, 2, 6, 5, 0, 6, 3, 1, 0, 0]:
+        mf2_bf.addNum(num)
         mf2.addNum(num)
-    assert mf2.findMedian() == 3.0  # sorted: [0,0,0,1,2,3,5,6,6,6,10]
+    result1 = mf2_bf.findMedian()
+    result2 = mf2.findMedian()
+    assert result1 == 3.0, f"Brute force failed: got {result1}, expected 3.0"
+    assert result2 == 3.0, f"Optimal failed: got {result2}, expected 3.0"
+    print(f"Larger stream: expected=3.0, brute_force={result1}, optimal={result2} ✓")
 
-    # Test case 4: Single element
+    # Test case 3: Single element
+    mf3_bf = MedianFinderBruteForce()
     mf3 = MedianFinder()
+    mf3_bf.addNum(5)
     mf3.addNum(5)
+    assert mf3_bf.findMedian() == 5.0
     assert mf3.findMedian() == 5.0
+    print(f"Single element: expected=5.0 ✓")
 
-    # Test case 5: Two elements
-    mf4 = MedianFinder()
-    mf4.addNum(1)
-    mf4.addNum(2)
-    assert mf4.findMedian() == 1.5
+    print("\nAll tests passed!")
 
-    print("All test cases passed!")
+# ===== END CODE =====

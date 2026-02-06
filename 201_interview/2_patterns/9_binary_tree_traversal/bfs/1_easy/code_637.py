@@ -65,52 +65,79 @@ class TreeNode:
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def average_of_levels_brute_force(root: Optional[TreeNode]) -> List[float]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def average_of_levels(root: Optional[TreeNode]) -> List[float]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
-if __name__ == "__main__":
-    # TODO: Write your test cases here
+# ===== YOUR CODE =====
 
+if __name__ == "__main__":
     # Test case 1: standard tree
     root1 = TreeNode(3)
     root1.left = TreeNode(9)
     root1.right = TreeNode(20)
     root1.right.left = TreeNode(15)
     root1.right.right = TreeNode(7)
-    # Expected: [3.0, 14.5, 11.0]
 
     # Test case 2: single node
     root2 = TreeNode(1)
-    # Expected: [1.0]
 
     # Test case 3: left-skewed tree
     root3 = TreeNode(1)
     root3.left = TreeNode(2)
     root3.left.left = TreeNode(3)
-    # Expected: [1.0, 2.0, 3.0]
 
-    pass
+    test_cases = [
+        {"args": (root1,), "expected": [3.0, 14.5, 11.0]},
+        {"args": (root2,), "expected": [1.0]},
+        {"args": (root3,), "expected": [1.0, 2.0, 3.0]},
+    ]
+
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = average_of_levels_brute_force(*args)
+        result2 = average_of_levels(*args)
+
+        assert result1 == expected, f"Brute force failed: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed: got {result2}, expected {expected}"
+
+        print(f"expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

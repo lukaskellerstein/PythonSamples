@@ -63,49 +63,77 @@ from typing import List
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def find_closest_elements_brute_force(arr: List[int], k: int, x: int) -> List[int]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def find_closest_elements(arr: List[int], k: int, x: int) -> List[int]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
+    test_cases = [
+        {
+            "args": ([1, 2, 3, 4, 5], 4, 3),
+            "expected": [1, 2, 3, 4]
+        },
+        {
+            "args": ([1, 1, 2, 3, 4, 5], 4, -1),
+            "expected": [1, 1, 2, 3]
+        },
+        {
+            "args": ([1, 2, 3, 4, 5], 4, -1),
+            "expected": [1, 2, 3, 4]
+        },
+        {
+            "args": ([1, 2, 3], 3, 2),
+            "expected": [1, 2, 3]
+        },
+    ]
 
-    # Test case 1
-    assert find_closest_elements_brute_force([1, 2, 3, 4, 5], 4, 3) == [1, 2, 3, 4]
-    assert find_closest_elements([1, 2, 3, 4, 5], 4, 3) == [1, 2, 3, 4]
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
 
-    # Test case 2: Target outside array range (negative)
-    assert find_closest_elements_brute_force([1, 1, 2, 3, 4, 5], 4, -1) == [1, 1, 2, 3]
-    assert find_closest_elements([1, 1, 2, 3, 4, 5], 4, -1) == [1, 1, 2, 3]
+        result1 = find_closest_elements_brute_force(*args)
+        result2 = find_closest_elements(*args)
 
-    # Test case 3: Target outside array range (left side)
-    assert find_closest_elements([1, 2, 3, 4, 5], 4, -1) == [1, 2, 3, 4]
-    assert find_closest_elements_brute_force([1, 2, 3, 4, 5], 4, -1) == [1, 2, 3, 4]
+        assert result1 == expected, f"Brute force failed for {args}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {args}: got {result2}, expected {expected}"
 
-    # Test case 4: k equals array length
-    assert find_closest_elements([1, 2, 3], 3, 2) == [1, 2, 3]
+        print(f"args={args}, expected={expected}, brute_force={result1}, optimal={result2} ✓")
 
-    print("All test cases passed!")
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

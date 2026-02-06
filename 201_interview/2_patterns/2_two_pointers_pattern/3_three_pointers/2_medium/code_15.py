@@ -67,39 +67,73 @@ from typing import List
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def three_sum_brute_force(nums: List[int], target: int) -> List[List[int]]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (Sort + Two Pointers)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def three_sum(nums: List[int], target: int) -> List[List[int]]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
     test_cases = [
-        ([-1, 0, 1, 2, -1, -4], 0),   # Expected: [[-1, -1, 2], [-1, 0, 1]]
-        ([0, 1, 1], 0),                # Expected: []
-        ([0, 0, 0], 0),                # Expected: [[0, 0, 0]]
+        {
+            "args": ([-1, 0, 1, 2, -1, -4], 0),
+            "expected": [[-1, -1, 2], [-1, 0, 1]]
+        },
+        {
+            "args": ([0, 1, 1], 0),
+            "expected": []
+        },
+        {
+            "args": ([0, 0, 0], 0),
+            "expected": [[0, 0, 0]]
+        },
     ]
 
-    pass
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = three_sum_brute_force(*args)
+        result2 = three_sum(*args)
+
+        assert result1 == expected, f"Brute force failed for {args}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {args}: got {result2}, expected {expected}"
+
+        print(f"args={args}, expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

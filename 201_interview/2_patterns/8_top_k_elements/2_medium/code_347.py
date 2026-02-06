@@ -55,52 +55,77 @@ from typing import List
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def top_k_frequent_brute_force(nums: List[int], k: int) -> List[int]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def top_k_frequent(nums: List[int], k: int) -> List[int]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
+    test_cases = [
+        {
+            "args": ([1, 1, 1, 2, 2, 3], 2),
+            "expected": [1, 2]
+        },
+        {
+            "args": ([1], 1),
+            "expected": [1]
+        },
+        {
+            "args": ([1, 2, 3], 3),
+            "expected": [1, 2, 3]
+        },
+        {
+            "args": ([-1, -1, -2, -2, -2, 3], 2),
+            "expected": [-2, -1]
+        },
+    ]
 
-    # Test case 1
-    result = top_k_frequent_brute_force([1, 1, 1, 2, 2, 3], 2)
-    assert sorted(result) == [1, 2]
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
 
-    result = top_k_frequent([1, 1, 1, 2, 2, 3], 2)
-    assert sorted(result) == [1, 2]
+        result1 = sorted(top_k_frequent_brute_force(*args))
+        result2 = sorted(top_k_frequent(*args))
 
-    # Test case 2: Single element
-    assert top_k_frequent([1], 1) == [1]
+        assert result1 == expected, f"Brute force failed for {args}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {args}: got {result2}, expected {expected}"
 
-    # Test case 3: All same frequency, k equals number of unique elements
-    result = top_k_frequent([1, 2, 3], 3)
-    assert sorted(result) == [1, 2, 3]
+        print(f"args={args}, expected={expected}, brute_force={result1}, optimal={result2} ✓")
 
-    # Test case 4: Negative numbers
-    result = top_k_frequent([-1, -1, -2, -2, -2, 3], 2)
-    assert sorted(result) == [-2, -1]
+    print("\nAll tests passed!")
 
-    print("All test cases passed!")
+# ===== END CODE =====

@@ -65,56 +65,80 @@ class TreeNode:
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def level_order_brute_force(root: Optional[TreeNode]) -> List[List[int]]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def level_order(root: Optional[TreeNode]) -> List[List[int]]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
-if __name__ == "__main__":
-    # TODO: Write your test cases here
+# ===== YOUR CODE =====
 
+if __name__ == "__main__":
     # Test case 1: standard tree
     root1 = TreeNode(3)
     root1.left = TreeNode(9)
     root1.right = TreeNode(20)
     root1.right.left = TreeNode(15)
     root1.right.right = TreeNode(7)
-    # Expected: [[3], [9, 20], [15, 7]]
 
     # Test case 2: single node
     root2 = TreeNode(1)
-    # Expected: [[1]]
-
-    # Test case 3: empty tree
-    root3 = None
-    # Expected: []
 
     # Test case 4: left-skewed tree
     root4 = TreeNode(1)
     root4.left = TreeNode(2)
     root4.left.left = TreeNode(3)
-    # Expected: [[1], [2], [3]]
 
-    pass
+    test_cases = [
+        {"args": (root1,), "expected": [[3], [9, 20], [15, 7]]},
+        {"args": (root2,), "expected": [[1]]},
+        {"args": (None,), "expected": []},
+        {"args": (root4,), "expected": [[1], [2], [3]]},
+    ]
+
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
+
+        result1 = level_order_brute_force(*args)
+        result2 = level_order(*args)
+
+        assert result1 == expected, f"Brute force failed: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed: got {result2}, expected {expected}"
+
+        print(f"expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

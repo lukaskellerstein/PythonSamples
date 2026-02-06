@@ -74,48 +74,50 @@ class TreeNode:
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION (Path Finding)
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def lowest_common_ancestor_brute_force(
     root: Optional[TreeNode], p: TreeNode, q: TreeNode
 ) -> Optional[TreeNode]:
     pass
 
+# ===== END CODE =====
+
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (Post-Order DFS)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def lowest_common_ancestor(
     root: Optional[TreeNode], p: TreeNode, q: TreeNode
 ) -> Optional[TreeNode]:
     pass
 
+# ===== END CODE =====
+
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
-if __name__ == "__main__":
-    # TODO: Write your test cases here
+# ===== YOUR CODE =====
 
-    # Build test tree
-    #         3
-    #        / \
-    #       5   1
-    #      / \ / \
-    #     6  2 0  8
-    #       / \
-    #      7   4
+if __name__ == "__main__":
     root = TreeNode(3)
     root.left = TreeNode(5)
     root.right = TreeNode(1)
@@ -126,13 +128,24 @@ if __name__ == "__main__":
     root.left.right.left = TreeNode(7)
     root.left.right.right = TreeNode(4)
 
-    # Test case 1: LCA(5, 1) = 3
-    p1, q1 = root.left, root.right
+    test_cases = [
+        {"args": (root, root.left, root.right), "expected": 3},
+        {"args": (root, root.left, root.left.right.right), "expected": 5},
+        {"args": (root, root.left.left, root.left.right.right), "expected": 5},
+    ]
 
-    # Test case 2: LCA(5, 4) = 5
-    p2, q2 = root.left, root.left.right.right
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
 
-    # Test case 3: LCA(6, 4) = 5
-    p3, q3 = root.left.left, root.left.right.right
+        result1 = lowest_common_ancestor_brute_force(*args)
+        result2 = lowest_common_ancestor(*args)
 
-    pass
+        assert result1 and result1.val == expected, f"Brute force failed: got {result1.val if result1 else None}, expected {expected}"
+        assert result2 and result2.val == expected, f"Optimal failed: got {result2.val if result2 else None}, expected {expected}"
+
+        print(f"LCA({args[1].val}, {args[2].val}), expected={expected}, brute_force={result1.val}, optimal={result2.val} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

@@ -59,33 +59,73 @@ from typing import List
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION (Generate all, then filter)
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def generate_parenthesis_brute_force(n: int) -> List[str]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION (Backtracking with pruning)
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def generate_parenthesis(n: int) -> List[str]:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
-    pass
+    test_cases = [
+        {
+            "args": (3,),
+            "expected": ["((()))","(()())","(())()","()(())","()()()"]
+        },
+        {
+            "args": (1,),
+            "expected": ["()"]
+        },
+        {
+            "args": (2,),
+            "expected": ["(())","()()"]
+        },
+    ]
+
+    for test in test_cases:
+        args = test["args"]
+        expected = sorted(test["expected"])
+
+        result1 = sorted(generate_parenthesis_brute_force(*args))
+        result2 = sorted(generate_parenthesis(*args))
+
+        assert result1 == expected, f"Brute force failed for {args}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {args}: got {result2}, expected {expected}"
+
+        print(f"args={args}, expected={expected}, brute_force={result1}, optimal={result2} ✓")
+
+    print("\nAll tests passed!")
+
+# ===== END CODE =====

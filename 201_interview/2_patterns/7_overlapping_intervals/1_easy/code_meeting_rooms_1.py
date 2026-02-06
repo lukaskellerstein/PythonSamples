@@ -54,50 +54,77 @@ from typing import List
 # ============================================================
 # PART 1 -- BRUTE FORCE SOLUTION
 # ============================================================
-# TODO: Describe your brute force approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def can_attend_meetings_brute_force(intervals: List[List[int]]) -> bool:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 2 -- OPTIMAL SOLUTION
 # ============================================================
-# TODO: Describe your optimal approach
-#
+
+# ===== YOUR ANSWER =====
+# Approach: ???
 # Time Complexity: O(???)
 # Space Complexity: O(???)
+# ===== END ANSWER =====
 
+# ===== YOUR CODE =====
 
 def can_attend_meetings(intervals: List[List[int]]) -> bool:
     pass
+
+# ===== END CODE =====
 
 
 # ============================================================
 # PART 3 -- TEST CASES
 # ============================================================
 
+# ===== YOUR CODE =====
+
 if __name__ == "__main__":
-    # TODO: Write your test cases here
+    test_cases = [
+        {
+            "args": ([[0, 30], [5, 10], [15, 20]],),
+            "expected": False
+        },
+        {
+            "args": ([[7, 10], [2, 4]],),
+            "expected": True
+        },
+        {
+            "args": ([],),
+            "expected": True
+        },
+        {
+            "args": ([[1, 5]],),
+            "expected": True
+        },
+    ]
 
-    # Test case 1: Overlapping meetings
-    assert can_attend_meetings_brute_force([[0, 30], [5, 10], [15, 20]]) == False
-    assert can_attend_meetings([[0, 30], [5, 10], [15, 20]]) == False
+    for test in test_cases:
+        args = test["args"]
+        expected = test["expected"]
 
-    # Test case 2: Non-overlapping meetings
-    assert can_attend_meetings_brute_force([[7, 10], [2, 4]]) == True
-    assert can_attend_meetings([[7, 10], [2, 4]]) == True
+        result1 = can_attend_meetings_brute_force(*args)
+        result2 = can_attend_meetings(*args)
 
-    # Test case 3: Empty input
-    assert can_attend_meetings_brute_force([]) == True
-    assert can_attend_meetings([]) == True
+        assert result1 == expected, f"Brute force failed for {args}: got {result1}, expected {expected}"
+        assert result2 == expected, f"Optimal failed for {args}: got {result2}, expected {expected}"
 
-    # Test case 4: Single meeting
-    assert can_attend_meetings_brute_force([[1, 5]]) == True
-    assert can_attend_meetings([[1, 5]]) == True
+        print(f"args={args}, expected={expected}, brute_force={result1}, optimal={result2} ✓")
 
-    print("All test cases passed!")
+    print("\nAll tests passed!")
+
+# ===== END CODE =====
