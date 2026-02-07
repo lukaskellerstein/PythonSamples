@@ -30,8 +30,10 @@ def can_attend_meetings(intervals):
     # Sort by start time
     intervals.sort(key=lambda x: x[0])
 
-    # Check if any meeting starts before the previous one ends
+    # Let's start comparing from the second interval with the previous ones
     for i in range(1, len(intervals)):
+
+        # Check if any meeting starts before the previous one ends
         if intervals[i][0] < intervals[i - 1][1]:
             return False
 

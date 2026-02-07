@@ -87,7 +87,13 @@ class KthLargestBruteForce:
 
     def add(self, val: int) -> int:
         self.nums.append(val)
+        
+        # ascending 1,2,3
+        # self.nums.sort()
+
+        # descending 3,2,1
         self.nums.sort(reverse=True)
+
         return self.nums[self.k - 1]
 
 

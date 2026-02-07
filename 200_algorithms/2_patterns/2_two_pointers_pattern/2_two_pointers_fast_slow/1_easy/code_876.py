@@ -37,22 +37,6 @@ class ListNode:
         self.next = next
 
 
-# ----------------------------------------------------
-# Two Pointers solution (Fast/Slow)
-#
-# time complexity = O(n) - single pass, fast pointer traverses full list
-# space complexity = O(1) - only using two pointers
-# ----------------------------------------------------
-
-def middle_node(head: Optional[ListNode]) -> Optional[ListNode]:
-    slow = head
-    fast = head
-
-    while fast and fast.next:
-        slow = slow.next          # 1 step
-        fast = fast.next.next     # 2 steps
-
-    return slow
 
 
 # ----------------------------------------------------
@@ -73,6 +57,25 @@ def middle_node_brute_force(head: Optional[ListNode]) -> Optional[ListNode]:
 
     # Return middle node
     return nodes[len(nodes) // 2]
+
+
+
+# ----------------------------------------------------
+# Two Pointers solution (Fast/Slow)
+#
+# time complexity = O(n) - single pass, fast pointer traverses full list
+# space complexity = O(1) - only using two pointers
+# ----------------------------------------------------
+
+def middle_node(head: Optional[ListNode]) -> Optional[ListNode]:
+    slow = head
+    fast = head
+
+    while fast and fast.next:
+        slow = slow.next          # 1 step
+        fast = fast.next.next     # 2 steps
+
+    return slow
 
 
 # ----------------------------------------------------

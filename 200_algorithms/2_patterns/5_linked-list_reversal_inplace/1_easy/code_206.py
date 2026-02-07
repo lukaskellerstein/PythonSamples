@@ -72,15 +72,16 @@ print_list(reverse_list(head))  # 5 -> 4 -> 3 -> 2 -> 1
 
 
 def reverse_list_recursive(head):
-    # Base case: empty list or single node
+    # if empty list or single node
     if not head or not head.next:
         return head
 
     # Reverse the rest of the list
     new_head = reverse_list_recursive(head.next)
 
-    # head.next is now the tail of the reversed sublist — point it back to head
+    # "make the node ahead of me point back to me" (reverse the arrow)
     head.next.next = head
+    # "remove my forward pointer" (it'll get re-set by the caller above, except for the original head which should point to None)
     head.next = None
 
     return new_head
